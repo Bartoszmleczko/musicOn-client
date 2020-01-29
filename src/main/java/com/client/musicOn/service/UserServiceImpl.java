@@ -6,6 +6,7 @@ import com.client.musicOn.entity.Roles;
 import com.client.musicOn.entity.Users;
 import com.client.musicOn.model.UnregisteredUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -22,6 +23,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+
 public class UserServiceImpl implements UserService {
 
     @Autowired
