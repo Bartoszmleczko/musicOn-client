@@ -37,6 +37,7 @@ public class HomeController {
         List<Result> tracks = response.getResults();
         theModel.addAttribute("tracks" , tracks);
         return "home";
+
     }
 
     @GetMapping("/findSong/{trackId}")
