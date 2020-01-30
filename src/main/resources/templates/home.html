@@ -76,7 +76,20 @@
     </form>
 </nav>
 
-<div class="container-fluid" style="margin-top:30px;">
+<div class="container-fluid text-center" style="margin-top:30px;">
+
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-4">
+        <form th:action="@{/home/search}" method="POST" action="#" class="form-inline" >
+            <input  type="text" th:object="${search_phrase}" name="search_phrase" placeholder="Wyszukaj" class="form-control-lg"/>
+            <input type="submit" class="btn btn-danger btn-lg" placeholder="Szukaj"/>
+        </form>
+        </div>
+    </div>
+
+
+
     <div class="row">
         <div class="col-lg-3 home-track-div border border-secondary rounded "  th:each="track: ${tracks}"  >
 

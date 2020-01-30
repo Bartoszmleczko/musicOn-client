@@ -10,15 +10,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body th:style="'background: url(/img/gig.jpg) center fixed;'">
-        <div class="container wrapper fadeInDown" style="background: #3D66B8;">
-        <form action = "#" th:action="@{/register/registerUser}" th:object="${newUser}" method="POST" class="form form-group">
-            <div class="form-group" >
+        <div class="container wrapper fadeInDown" >
+
+
+
+        <form action = "#" th:action="@{/register/registerUser}" th:object="${newUser}" method="POST" class="form form-group p-5 text-center" style="background: #3D66B8;">
+            <h1 style="color: white; text-align:center;">Rejestracja</h1>
+            <div class="form-group ml-5" >
             <div th:if="${userMsg}">
 
                 <p th:text = "${userMsg}"></p>
 
             </div>
-            <input type = "text" th:field="*{userName}" placeholder="User Name"/>
+            <input type = "text" th:field="*{userName}" placeholder="Nazwa użytkownika"/>
             <div th:if="${#fields.hasErrors('userName')}"
                  style="margin-bottom: 25px" class="text-danger">
                 <ul>
@@ -26,14 +30,14 @@
                 </ul>
             </div>
 
-            <input type = "password" th:field="*{password}" placeholder="Password"/>
+            <input type = "password" th:field="*{password}" placeholder="Hasło"/>
                 <div th:if="${#fields.hasErrors('password')}"
                      style="margin-bottom: 25px" class="text-danger">
                     <ul>
                         <li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
                     </ul>
                 </div>
-            <input type = "password" th:field="*{matchingPassword}" placeholder="Matching Password"/>
+            <input type = "password" th:field="*{matchingPassword}" placeholder="Potwierdź hasło"/>
                 <div th:if="${#fields.hasErrors('matchingPassword')}"
                      style="margin-bottom: 25px" class="text-danger">
                     <ul>
@@ -47,11 +51,12 @@
                         <li th:each="err : ${#fields.errors('email')}" th:text="${err}" />
                     </ul>
                 </div>
-            <input type="submit" class = "btn btn-danger"/>
-        </div>
-        </form>
+            <input type="submit" class = "btn btn-danger btn-lg btn-block " />
         </div>
 
+        </form>
+            <a class="btn btn-success btn-lg btn-block" th:href="@{/login}"> Wróć do ekranu logowania</a>
+        </div>
 
 </body>
 </html>

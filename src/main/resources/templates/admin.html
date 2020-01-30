@@ -106,7 +106,7 @@
 
                     <td>
                         <th:block th:switch="${#lists.size(user.user_roles)}">
-                            <a th:case="'2'" th:href="@{/admin/grantAdminAccess/__${user.username}__}" class ="btn btn-danger">Grant Admin Access</a>
+                            <a th:case="'1'" th:href="@{/admin/grantAdminAccess/__${user.username}__}" class ="btn btn-danger">Grant Admin Access</a>
                         </th:block>
 
                     </td>

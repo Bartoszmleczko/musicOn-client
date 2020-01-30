@@ -10,7 +10,7 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,31 +27,30 @@
     <div class="wrapper fadeInDown">
         <div id="formContent">
 
-            <form th:action="@{/authenticateTheUser}" method="POST">
+            <form th:action="@{/authenticateTheUser}" method="POST" class="text-center">
 
                 <div class="form-group">
                     <div class="col-xs-15">
                         <div>
                             <div th:if="${param.error}">
                                 <div class="alert alert-danger col-xs-offset-1 col-xs-10">
-                                    Invalid username and password.
+                                    Nieprawidłowa nazwa użytkownika lub hasło
                                 </div>
                             </div>
                             <div th:if="${param.logout}">
                                 <div class="alert alert-success col-xs-offset-1 col-xs-10">
-                                    You have been logged out.
+                                    Zostałeś wylogowany
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <input type="text" id="login" name="username"class="fadeIn second"placeholder="login">
-                <input type="password" id="password" name="password" class="fadeIn third"  placeholder="password">
-                <input type="submit" class="fadeIn fourth" value="Log In">
-                <div class="col-sm-6 controls ">
+                <input type="text" id="login" name="username"class="fadeIn second"placeholder="Nazwa użytkownika">
+                <input type="password" id="password" name="password" class="fadeIn third"  placeholder="Hasła">
+                <input type="submit" class="fadeIn fourth form-submit-btn" value="Log In">
+
                     <a th:href="@{/register/registerForm}" class = "btn btn-outline-primary ml-5">Register</a>
-                </div>
             </form>
 
         </div>

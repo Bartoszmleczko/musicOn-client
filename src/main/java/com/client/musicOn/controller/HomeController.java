@@ -32,13 +32,26 @@ public class HomeController {
 
     @GetMapping
     public String showHome(Model theModel){
-
         ITunesResponse response = iTunesService.getAristByName("Gojira");
         List<Result> tracks = response.getResults();
         theModel.addAttribute("tracks" , tracks);
         return "home";
-
     }
+
+    @RequestMapping("/search")
+    public String showSearchResult(Model theModel,@ModelAttribute("search_phrase")  String phrase, BindingResult result){
+
+        if(result.hasErrors()){
+            return "home";
+        }
+
+        ITunesResponse response = iTunesService.getAristByName(phrase);
+        List<Result> tracks = response.getResults();
+        theModel.addAttribute("tracks" , tracks);
+
+        return "home";
+    }
+
 
     @GetMapping("/findSong/{trackId}")
     public String getTrackSubpage(@PathVariable("trackId") Integer trackId,
