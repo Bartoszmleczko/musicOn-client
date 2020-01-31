@@ -44,8 +44,15 @@ public class HomeController {
         if(result.hasErrors()){
             return "home";
         }
-
-        ITunesResponse response = iTunesService.getAristByName(phrase);
+        ITunesResponse response;
+        phrase = phrase.trim();
+        if(phrase.equals("")){
+            response = iTunesService.getAristByName("Gojira");
+            List<Result> tracks = response.getResults();
+            theModel.addAttribute("tracks" , tracks);
+            return "home";
+        }
+        response = iTunesService.getAristByName(phrase);
         List<Result> tracks = response.getResults();
         theModel.addAttribute("tracks" , tracks);
 
