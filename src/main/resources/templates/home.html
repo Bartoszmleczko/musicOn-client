@@ -27,8 +27,8 @@
 </head>
 <body style=" background: #3D66B8 ">
 
-<div class="jumbotron text-center" style="margin-bottom:0" >
-    <h1>App</h1>
+<div class="jumbotron text-center" style="margin-bottom:0px;" th:style="'background: url(/img/gig.jpg) center fixed;'">
+    <h1 style="color: white;">App</h1>
     <p></p>
 </div>
 
@@ -90,40 +90,28 @@
 
 
 
-    <div class="row">
-        <div class="col-lg-3 home-track-div border border-secondary rounded "  th:each="track: ${tracks}"  >
-
-                <div class="row">
-
-                <div class="col-lg-3" th:style="'background: url(' + ${track.artworkUrl100} + ') no-repeat; background-size: contain; '">
-
-                </div>
-                <div class="col-lg-9">
-
-                    <b><p th:text="${track.getArtistName()}"></p></b>
-                    <p th:text="${track.trackName}"></p>
-                    <a th:href="@{/home/findSong/__${track.trackId}__}" class="btn btn-info">Check Track</a>
-            </div>
-                </div>
-
-        </div>
+    <div class="row mt-2">
 
 
 
 
-<!--        <div class="col-sm-12">-->
-<!--            <h2>TITLE HEADING</h2>-->
-<!--            <h5>Title description, Dec 7, 2017</h5>-->
-<!--            <div class="fakeimg">Fake Image</div>-->
+                    <div class="card-group col-2 mt-2" th:each="track: ${tracks}">
+                        <div class="card">
+                            <img class="card-img-top" th:src="${track.artworkUrl100}"  alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${track.getArtistName()}"></h5>
+                                <p class="card-text" th:text="${track.getTrackName()}"></p>
+                                <p class="card-text"><small class="text-muted" th:text="${track.getCollectionCensoredName()}"></small></p>
+                                <a th:href="@{/home/findSong/__${track.trackId}__}" class="btn btn-info">Check Track</a>
+                            </div>
+                        </div>
+                    </div>
 
-<!--            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>-->
-<!--            <br>-->
-<!--            <h2>TITLE HEADING</h2>-->
-<!--            <h5>Title description, Sep 2, 2017</h5>-->
-<!--            <div class="fakeimg">Fake Image</div>-->
-<!--            <p>Some text..</p>-->
-<!--            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>-->
-<!--        </div>-->
+
+
+
+
+
     </div>
 </div>
 

@@ -77,22 +77,38 @@
 
 
 
-        <div class="col-lg-3 " style="margin-left: 25px; margin-right: 5px; background:#3D66B8;">
+        <div class="col-lg-2 " style="margin-left: 25px; margin-right: 5px; background:#3D66B8;">
 
         </div>
 
-        <div class="col-lg-3" style="margin-left: 25px; margin-right: 5px; text-align: center;">
+        <div class="col-lg-4" style="margin-left: 25px; margin-right: 5px; text-align: center;">
 
-            <h2>
-                <p th:text="${track.artistName}"></p>
-            <p th:text="${track.trackName}"></p>
-            </h2>
-            <img th:src="${track.getArtworkUrl100()}">
-            <audio th:src="${track.previewUrl}" controls></audio>
+
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" th:src="${track.artworkUrl100}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${track.artistName}"></h5>
+                        <p class="card-text" th:text="${track.trackName}"></p>
+                    </div>
+                    <div class="card-footer">
+                                    <audio th:src="${track.previewUrl}" controls></audio>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="col-lg-3 " style="margin-left: 25px; margin-right: 5px;">
-                <pre th:text="${lyrics.lyrics}" style="font-weight: bold"></pre>
-
+        <div class="col-lg-5 " style="margin-left: 25px; margin-right: 5px;">
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${track.artistName + ' - ' + track.trackName}"></h5>
+                        <p style="background: #92badd; color: white;">
+                        <pre class="card-text" th:text="${lyrics.lyrics}" style="font-family: 'Century Gothic';"></pre>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -101,7 +117,7 @@
 
 
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+<div class="jumbotron text-center mt-2" style="margin-bottom:0; max-height: 100px;">
     <p>Footer</p>
 </div>
 
